@@ -37,8 +37,6 @@ public class AccountTest {
 		accountObj1.printAccount();
 		float remBal1 = accountObj1.withdraw(5000);
 		System.out.println("Remaining balance : "+remBal1);
-		
-		
 
 		Account accountObj2 = new Account();
 		accountObj2.printAccount();
@@ -47,15 +45,12 @@ public class AccountTest {
 		float remBal2 = accountObj2.withdraw(6000);
 		System.out.println("Remaining balance : "+remBal2);
 		
-
 		Account accountObj3 = new Account();
 		accountObj3.printAccount();
 		accountObj3.setAccount(103, "Dhoni", 70000);
 		accountObj3.printAccount();
 		float remBal3 = accountObj3.withdraw(7000);
 		System.out.println("Remaining balance : "+remBal3);
-		
-
 		
 		
 	}
@@ -85,9 +80,15 @@ class Account
 	
 	float withdraw(float amt) {
 		System.out.println(accountHolder+" is withdrawing "+amt);
-		accountBalance = accountBalance- amt;
+		accountBalance = accountBalance - amt;
 		return accountBalance;
 	}
-	
+
+	float deposit(float amt) {
+		System.out.println(accountHolder+" is depositing "+amt);
+		accountBalance = accountBalance + amt;
+		return accountBalance;
+	}
+
 }
 
