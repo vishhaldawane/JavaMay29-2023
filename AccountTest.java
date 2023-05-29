@@ -37,6 +37,7 @@ public class AccountTest {
 		accountObj1.printAccount();
 		float remBal1 = accountObj1.withdraw(5000);
 		System.out.println("Remaining balance : "+remBal1);
+		
 
 		Account accountObj2 = new Account();
 		accountObj2.printAccount();
@@ -52,15 +53,19 @@ public class AccountTest {
 		float remBal3 = accountObj3.withdraw(7000);
 		System.out.println("Remaining balance : "+remBal3);
 		
+		accountObj1.withdraw(40000); 
+		//accountObj1.accountBalance=9000000;
+		
+		accountObj1.printAccount();
 		
 	}
 }
 
 class Account
 {
-	int accountNumber; //DATA MEMBER
-	String accountHolder;
-	float accountBalance;
+	private int accountNumber; //DATA MEMBER
+	private String accountHolder;
+	private float accountBalance;
 	
 	//mutator
 	void setAccount(int x, String y, float z) {
@@ -80,13 +85,26 @@ class Account
 	
 	float withdraw(float amt) {
 		System.out.println(accountHolder+" is withdrawing "+amt);
-		accountBalance = accountBalance - amt;
+		if(amt < 0 ) {
+			System.out.println("amount to withdraw cannot be in negative...");
+		}
+		else if(amt > (accountBalance-5000) ){
+			System.out.println("Cannot withdraw more than the balance...maintain the min balance");
+		}
+		else {
+			accountBalance = accountBalance - amt;
+		}
 		return accountBalance;
 	}
 
 	float deposit(float amt) {
-		System.out.println(accountHolder+" is depositing "+amt);
-		accountBalance = accountBalance + amt;
+		if(amt > 50000) {
+			System.out.println("Show the income proof or the PAN");
+		}
+		else {
+			System.out.println(accountHolder+" is depositing "+amt);
+			accountBalance = accountBalance + amt;
+		}
 		return accountBalance;
 	}
 
