@@ -1,0 +1,363 @@
+
+NLP
+
+	Neuro Linguistic Programming
+	|	|		 |
+	brain	spoken/listening code
+	cells
+
+
+		V	A	K	O	G
+		|	|	|	|	|
+		eye	ear	skin			
+		|	|
+		code	concepts
+
+
+
+
+
+
+
+
+			ROLE - acting
+			who ???? DBA Analyst Programmer
+			|		business guys/gals
+			|	testers/deployers/support
+			|
+		-----------------------
+		|		|
+		where		when
+		|SPACE		|TIME
+	--------------------------------------
+	|		|		|
+	why		what		how
+	REASON		in->FORMation	implementation
+						|
+					---------------------
+					|		|
+					success	<==== feedback
+
+	changeless -> changes
+
+
+
+		Java Programming Language
+		|	|		|
+	   flavour	set of		---------------------------
+	C		instructions	|	|	|	|
+	C++				listen	speak	read	write
+	Python				<------------>
+
+
+		formula of creation
+
+	health  wealth   relations   mentalpeace  technical  social
+
+
+
+
+
+	Java is "highly structured"  language
+
+
+	notepad First.java <-- source code is First.java
+	|	 |
+	public class First <-- class name is also first
+	{
+			
+	}
+
+	"source code name" and "class name" must be the same
+	only if "the class name" is public
+
+	if the class is not public then it is not mandatory
+
+	you can have one public class in the source code
+
+
+	C:\> notepad First.java
+			|
+			class First
+			{
+			}
+	C:\> javac First.java
+		      |
+		    First.class <-- this .class file is generated
+		       |	because of "class First"
+		       |
+	C:\> java  First <-- pass this class file without extension
+
+
+Naming Convention
+----------------------
+
+	ClassName	Singer,Player,BankAccount
+			SavingsAccount, FixedDepositAccount
+			GodIsNowHere
+
+	methodName	withdraw() { }
+			fundTransfer() { }	
+			setLookAndFeel() { }
+			openDematAccount() { }
+			stopTheChequePayement() { }
+			applyForCreditCard() { }
+
+	objectNames	myObject1
+	variableNames	rollNumber
+	fieldNames	bankBranchAddress
+
+	CONSTANT	PI=3.14
+			SPEED_OF_LIGHT=186000.519  per second
+			MIN_RATE_OF_INTEREST=3.4
+			MAX_RATE_OF_INTEREST=13.5
+
+	packages	package1.package2
+			com.sbi.collections
+			com.sbi.accounts
+			com.sbi.transfer
+
+		com <-- folder
+		|
+	--------------------
+	|
+	sbi <-- folder
+	|
+----------------------------------------
+|		|		|
+collections	accounts	transfer <-- folders
+
+
+
+		mysongs
+		|
+	---------------------------------
+	|		|	|
+	classical	rock	pop
+	....		...	....
+
+ 
+
+
+	Data <--- Types
+		---------------
+			|
+	------------------------------------
+	|				|
+	Primitive		    Secondary
+	|				   |	
+---------------------------------------	   ----------------
+|	  |		|	|			|
+Integral Floating   Character Boolean			Object
+ |	 |		|	 |			|
+ byte  1 float  4     char 2	boolean 1	-------------------
+ short 2 double 8				|
+ int   4					String
+ long  8
+	
+	
+		dial of byte
+	-128		0		127
+	<--------------256------------------>
+
+	int roll = 100;
+	roll++;
+	roll.value();
+
+
+	Integer myroll = new Integer(100);
+	myroll.increment();
+	myroll.decrement();
+	myroll.convert();
+	myroll.value();
+
+
+
+	100%
+
+  primitive   Wrapper
+	|	|
+	byte	Byte
+	short	Short
+	int	Integer
+	long	Long
+	char	Character
+	float	Float
+	double	Double
+	boolean	Boolean
+
+POPS concepts			vs	OOPS concept
+-------------------			----------------------
+Procedure Oriented 			Object Oriented 
+Programming System			Programming System
+
+top to bottom				bottom to top
+
+POPS=procedure<--data			OOPS=data<---procedure
+
+
+			Machine
+
+	Left					right
+	-Cloth	|	|	|	|	|Shirt - S M L XL XXL
+
+		  size| qty
+		   L    50 - data	
+
+		 marking() { }
+		 cutting() { } - verb | activity | function | methods
+		 stitching() { }
+		 finishing() { }
+		 packing() { }
+
+roller
+
+
+		Object = physical state + behaviour
+	
+		Object = data + methods
+
+		Account = balance + withdraw(){} deposit() { }
+
+
+
+
+	Class					Object
+	|					|
+design of the object			instance of a class
+
+blue print of a house			actual house(s)
+
+text file				memory representation
+
+.java file				byte code/jvm code
+
+class Account				Account acc1= new Account();
+{					Account acc2= new Account();
+    data				Account acc3= new Account();
+    +
+    METHODS
+}
+
+classname			CONSTRUCTOR
+ |				|
+Account accountObj1 = new Account();
+Account accountObj2 = new Account();
+Account accountObj3 = new Account();
+		|	|
+	reference to  ALLOCATOR
+	object
+
+	STACK				HEAP (free store) 
+	|
+					FIELD AREA				
+			accountNumber	accountHolder	accountBalance
+			-------------------------------------------------
+			|		|		|		|
+			-------------------------------------------------
+    +------------------->100
+    |
++---|-+				METHOD AREA
+| 100 |				setAccount()
++-----+				printAccount()
+accountObj1
+
+
+			accountNumber	accountHolder	accountBalance
+			-------------------------------------------------
+			|		|		|		|
+			-------------------------------------------------
+    +------------------->200
+    |
++---|-+				
+| 200 |				
++-----+				
+accountObj2
+
+
+
+			accountNumber	accountHolder	accountBalance
+			-------------------------------------------------
+			|		|		|		|
+			-------------------------------------------------
+    +------------------->300
+    |
++---|-+				
+| 300 |				
++-----+				
+accountObj3
+
+
+				   0        1        2     3        4        5      6      7         8       9	
+				-----------------------------------------------------------------------------------
+	+-----------------------| 500	|  800	|	|	|	|	|	|	|         |       |
+	|			-----|------------------------------------------------------------------------------
+	|			100  |
+	|			     |
+	100	+--------------------+	
+	accSet	|
+		|
+		|	accountNumber	accountHolder	accountBalance
+		|	-------------------------------------------------
+		|	|		|		|		|
+		|	-------------------------------------------------
+		+------>500
+
+
+
+			accountNumber	accountHolder	accountBalance
+		|	-------------------------------------------------
+		|	|		|		|		|
+		|	-------------------------------------------------
+		+------>800
+Account accSet[] = new Account[10];
+
+accSet[0] = new Account();
+accSet[1] = new Account();
+accSet[2] = new Account();
+accSet[3] = new Account();
+
+
+---------------------------------------------------------
+OOPS concepts
+
+
+	1. Abstraction
+		it is the "What is it?" part of an object
+		HIDE THE DATA, PROCEDURE
+		HIDE THE DATA IN SUCH A WAY SO THAT END USER
+		CANNOT ACCESS IT
+		
+	2. Encapsulation
+		it is the "How is it?" part of an object
+		BINDING OF DATA WITH CONCERNED FUNCTIONS
+		IN SUCH WAY SO THAT THE "ACCESSIBLE FUNCTIONS"
+		ARE "AVAILABLE" TO THE "END USER"
+
+	3. Polymorphism
+
+	4. Inheritance
+
+	5. Object Communication
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
