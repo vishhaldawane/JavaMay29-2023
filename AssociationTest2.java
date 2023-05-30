@@ -10,8 +10,13 @@ public class AssociationTest2 {
 		System.out.println("Lassi is prepapred :"+lassi);
 	}
 }
-class Kitchen
+//Association
+class GasStove {
+}
+class Kitchen { }
+class ModularKitchen extends Kitchen //isA
 {
+	GasStove stove = new GasStove(); //hasA
 	
 	//producesA				//usesA   usesA
 	Lassi 		makeLassi(Curd c, Sugar s) {
@@ -21,7 +26,8 @@ class Kitchen
 		return lassi;
 	}
 }
-class Lassi {
+class Drink { }
+class Lassi extends Drink { //isA
 	String density;
 	int weight;
 	int sweetnessLevel;
