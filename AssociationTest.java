@@ -42,15 +42,18 @@ class Human // <-- WHOLE entity
 {
 	private Heart heart = new Heart(); //hasA - PART ENTITY - composition
 	
-	private Brain brain = new Brain();
+	private Brain brain = new Brain(); //hasA
 
-	private Lung leftLung = new Lung();
-	private Lung rightLung = new Lung();
+	private Lung leftLung = new Lung(); //hasA
+	private Lung rightLung = new Lung(); //hasA
 
 	private Kidney leftKidney = new Kidney();
 	private Kidney rightKidney = new Kidney();
 	
+	Liver liver = new Liver();
+	
 	void courageous() {
+		liver.produceBlood();
 		leftKidney.purifyBlood();
 		rightKidney.purifyBlood();
 	}
