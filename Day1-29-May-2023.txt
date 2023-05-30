@@ -340,8 +340,366 @@ OOPS concepts
 
 	5. Object Communication
 
+			C - POPS
+			|
+			C++ - OOPs
+			|  .cpp -> .obj -> .exe
+
+Vendor	Intel		Sun/Oracle	HP	   IBM		Apple			any
+	|		|		|	   |		|			|
+H/w	X86		SpARC		hpseries   BB		PowerPc			any
+	|		|		|	   |		|			|
+OS	Windows		Solaris		HPUX	  AI[CS]X	Macintosh		Linux
+	|		|		|	   |		|			|
+compi	TC/VC++		cc		cc	   cc		cc			gcc/g++
+	|ASCII		|		|	   |		|			|
+Src	calc.cpp ----->calc.cpp	------>calc.cpp--->calc.cpp---->calc.cpp ------------>calc.cpp		
+compile	|		|		|		|	|			|
+Obj	calc.obj ----->calc.o	----->calc.o	----->calc.o----->calc.o	----->calc.o			
+link	|		|		|		|		|		|
+Exe	calc.exe ----->calc.out	----->calc.out----->calc.out	----->calc.out----->calc.out
+			|
+			calc
+
+			ls
+
+			ls.c
+			|
+			ls.o
+			|
+			ls.out
+			|
+			/bin/ls
+
+	.net f/w
+
+	JPL
+	|
+	One Language		Multi Language
+	|			|
+	MultiPlatform		One Platform - CLR
+	JVM JVM JVM JVM		x86
+	x8  sp   bb  pp	
+				
 
 
+Day 1 : Introduction to Java, Simple Java Code,
+	naming Conventions, Data types, Classes and Objects
+	Arrays of Objects, Four types of functions
+	OOPS vs POPS
+	OOPS concepts, 5
+	
+Day 2  : OOPs Concepts, Association - isA hasA usesA producesA 
+	 Passing Object and Returning Object from a function
+	 static, final, abstract, interfaces 
+
+Day 3  : Packages, Exception handling, Multithraeding
+
+Day 4  : Generics, Collection F/w, File Handling
+
+Day 5  : JDBC, Annotations, Case Study implementation
+
+
+
+
+
+
+
+	JVM - 
+	JRE - java runtime environment [ required to run the .class]
+
+
+Day 2
+----------------------------------------------------
+	Java Programming Language - James Gosling + 3
+	"Head First" Java - K & B - pictorial representation
+
+	3. Polymorphism
+	   ability of a "business entity" to have many forms
+
+		a. class extension
+		b. function overloading - eager    loading / early binding
+		c. function overriding - lazy      loading / late binding
+		d. operator overloading
+
+
+		a. class extension
+
+
+			BankAccount
+			|
+	---------------------------------------
+	|		|		|
+   SavingsAccount CurrentAccount   CreditCardAccount
+	|
+FixedDepositAccount
+
+					...
+					..
+					|
+				LivingBeing
+				|breathing();
+			------------------------------	
+			|		|	|
+			Animal		Tree 	Stone
+			|move();
+		-------------------------------------------------
+			|		|		|	|
+			Mammal		Reptile		Fish	Bird
+			| giveBirth()	 layEggs()	swim()	fly()
+			|
+			Human
+			|feel();
+			|think();			
+			|
+			Person
+			|analize()
+		-----------------------------------------
+			|
+			Student
+			|lEarn()		
+			|study()
+	------------------------------------------------------------------------------------------------------------------
+			|			|		|		|		|		|
+			Doctor			Engineer	VideoEditor	ContentWriter	YouTuber	....
+			|diagnose()		|
+		-------------		---------------------------
+		|		
+		Surgeon
+		|surgery();
+	-----------------------------------
+	|		|		|
+HeartSurgeon		NeuroSurgeon	OrthoSurgeon
+  heartSurgey()		   brainSurgery()	boneSurgery()
+
+
+
+
+
+		b. function overloading
+
+		function can be redefined with the same
+		name, but this can be differentiated
+		based on
+			i. type of parameter
+			ii. number of parameter
+			iii. sequence of type of parameters
+
+			CoVariant type can be included using
+			return type
+
+		c. function overriding
+
+			let subclass redefine a function
+			of its nearest super class
+
+		class SavingsAccount // Amit
+		{
+			float balance;
+			void withdraw(float amt) {
+				if(amt < (balance-5000) )
+					balance = balance -amt;
+				else
+					Sop("cannot withdraw");
+			}
+		}
+				CHILD			PARENT
+		class FixedDepositAccount extends SavingsAccount // Sumit
+		{
+			Date maturityDate;
+			
+			void withdraw(float a) { // OVERRIDING / REDEFINED / filter / rewriting / 
+				if(a <= (balance) && maturityDate == todaysDate )
+					balance = balance -a;
+				else
+					Sop("cannot withdraw, account yet not matured");
+			}
+		}
+
+
+
+		d. operator overloading
+
+			ability of an operator	
+			to have multiple meanings
+			in the expression
+
+--------------------------------------------------------------
+
+
+	4. Inheritance
+
+		ability of a "business entity" to 
+		acquire properties
+		from "existing business entities"
+
+	Derivation			Implementation
+		|			|
+		A <-regular class	A <--abstract class/interfaces
+		|			|
+		B			B
+
+		a. single level
+		b. multi level
+		c. multiple level* interfaces
+		d. hierarchical level
+
+		
+	Constructor 
+	---------------
+
+	- a special code block
+	- which has the same name as of "the enclosing class"
+		class A
+		{
+		}
+
+	- it is invoked during object creation process
+	- it is called once per object
+
+	- to initialize the object data
+
+	-----------------------------------------------------
+
+
+	1. exclusive
+	2. inherited
+	3. inherited-cum-overriding
+	4. implemented (abstract class/interfaces)	
+
+			Association
+			     |
+		--------------------------------
+		|				|
+		structural		operational
+		    |			    |
+		-----------------       -----------
+		|	|		|	|
+		isA	hasA		usesA	producesA
+
+	class Person
+	{
+		AdhaarCard adaarCard = new AdhaarCard(); //hasA
+
+	}
+	class Student extends Person //isA
+	{
+		ReportCard report = new ReportCard(); //hasA
+		
+	}
+	class Employee extends Student //isA
+	{
+		SalarySlip jan = new SalarySlip(); //hasA
+
+	}
+
+
+
+
+			BankAccount <-- generalization
+			    | acno,name,balance
+			    | withdraw() { } deposit() { }
+	---------------------------------------------
+	|isA		    |isA		|isA
+	SavingsAccount	CurrentAccount	     CreditCardAccount <- specialization 
+	|interestRate	    |overdraftLimit     |creditLimit,cashLimit
+	|
+------------------------
+|isA
+FixedDepositAccount <- specialization of specialization 
+| maturityDate
+-------------------
+		|
+	FlexiFixedDepositAccount 
+		|
+
+
+===========================================================================
+
+BankAccount ba = new BankAccount(101, "Sachin", 5000000);
+			accountNumber	accountHolder	accountBalance
+			-------------------------------------------------
+			|	101	|	Sachin	|	 5000000|
+			-------------------------------------------------
+    +------------------->100
+    |
++---|-+				
+| 100 |				
++-----+				
+
+SavingsAccount savings = new SavingsAccount(102, "Dhoni", 6000000, 4.5);
+
+			accountNumber	accountHolder	accountBalance	  interestRate
+			--------------------------------------------------------------
+			|	102	|	"Dhoni", |	 6000000|	4.5   |
+			----------------------------------------------------------------
+    +------------------->200
+    |
++---|-+				
+| 200 |				
++-----+				
+
+FixeDepositAccount  fd = new FixeDepositAccount(103, "Virat", 7000000, 8.5, LocalDate.of(2025, 12, 31));
+
+			<-------------------------------FixedDeposit----------------------------------->
+			<-----------------------SavingsAccount------------------------>
+			<-----------------BankAccount---------------->
+			accountNumber	accountHolder	accountBalance	  interestRate   maturityDate
+			--------------------------------------------------------------------------------
+			|	103	|	Virat	|	 7000000|	8.5   |  2025|12|31    |
+			---------------------------------------------------------------------------------
+    +------------------->300
+    |
++---|-+				
+| 300 |				
++-----+				
+fd
+
+			
+
+	5. Object Communication
+
+
+
+	class TurningGlass {
+	}
+	class HeatingCoil {
+	}
+	class Ovan
+	{
+		HeatingCoil coil = new HeatingCoil(); //hasA
+		TurningGlass turner = new TurningGlass(); //hasA
+
+	}
+
+	class Filament
+	{
+	}
+	class Bulb {
+		Filament fila = new Filament();//hasA
+
+	}
+
+	class WashingMachine {
+		WashingTub tub = new WashingTub(); //hasA
+
+	}
+
+
+
+	Lyricist lyricist1 = new Lyricist("Gulzar", "Jay Ho");
+	Lyricist x = lyricist1; 
+	Lyricist y = x; 
+
+					lyricist	name
+					-------------------------
+					|Gulzar		|Jay Ho  |
+					-------------------------
+	+---------------------------->  100 <-------- 100 y
+	|				|
+	100				|
+	lyricist1			100
+					x
 
 
 
