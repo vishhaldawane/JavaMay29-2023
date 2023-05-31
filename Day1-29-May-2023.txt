@@ -535,9 +535,9 @@ HeartSurgeon		NeuroSurgeon	OrthoSurgeon
 
 	Derivation			Implementation
 		|			|
-		A <-regular class	A <--abstract class/interfaces
+		A fun(){}<-regularClass	A fun(); <--abstract class/interfaces
 		|			|
-		B			B
+		B			B fun() { }
 
 		a. single level
 		b. multi level
@@ -701,6 +701,212 @@ fd
 	lyricist1			100
 					x
 
+
+
+
+
+
+
+	
+
+-------------------------------------------------------------
+		FIELD		METHOD		CLASS
+-------------------------------------------------------------
+static		shared across	are used to	nested class
+		all the objects refer the 
+		of a class	other static
+				members
+-------------------------------------------------------------	
+final		CONSTANT	CANNOT BE	CANNOT BE 
+				OVERRIDDEN	EXTENDED
+-------------------------------------------------------------
+abstract	X		partial contract    it may have
+				of a class	    abstract methods
+-------------------------------------------------------------
+
+
+		static "data members"
+			- they are declared "inside a class"
+			- cannot be declared inside any method
+			- class's data 
+			- they are instance's data
+
+
+	Object data		vs		Class's Data
+						(static data)
+	|					|
+	color
+	owner
+	length
+
+	static --> kiteCount = 0
+
+	static -> printKiteCount
+
+
+			color	owner	length	
+	k1
+
+
+			color	owner	length 
+	k2
+
+			color	owner	length 
+	k3
+
+			color	owner	length
+	k3
+
+	abstract class + abstract method = meant for inheritance
+
+
+	abstract class 
+	-------------------
+		a class with [optional partial contract]
+		it cannot be instantiated
+		it can be reused by the children
+		it acts as a symmetry across the group of classes
+	
+
+	abstract method
+	---------------
+		- method without body
+		- always declared inside an abstract class
+
+		abstract = partial = incomplete
+
+		- partial contract of a class -
+
+	abstract class GeometricalShape
+	{
+		//abstract method is without body
+		abstract void draw(); <-- undefined
+	}
+	
+	class Circle
+	{
+		void draw() {
+		}	
+	}
+	class Square
+	{
+		void draw() {
+		}	
+	}
+
+	class Rectangle
+	{
+		void draw() {
+		}	
+	}
+	class Triangle
+	{
+		void draw() {
+		}	
+	}
+
+
+
+
+
+
+
+
+	"static" method			"non-static"
+	----------------			|
+	|				can also access static+	
+	can only access			non static data/methods
+	other static data/methods
+
+
+	right hand -> paper  - 6      - anti clock wise
+	right leg  -> ground - circle - clock wise
+	
+
+			GeometricalShape
+			      |
+	----------------------------------------------
+		|			|
+		Circle - HR		Square - L
+		|isA			|isA
+		|			|
+		Ellipse	HR+(VR)		Rectangle L + (B)
+
+
+
+
+
+
+
+
+
+
+	interfaces
+
+		- it is a pure abstract class
+		- only abstract methods are declared here
+		- no non-abstract methods here
+
+
+		
+			Animal
+			| breathing();
+		-------------------------
+		|		|
+		Bird		Mammal
+		|fly();		|giveBirth();
+		|layEggs()	|
+	-------------		-------------------
+	|	     |          |		|
+	Parrot	     ------------		Tiger
+			  |
+			  Bat	
+
+		linear
+		non-linear
+
+
+
+Exception Handling
+-------------------
+
+	exception = runtime error
+
+			error
+			|
+	--------------------------------------------------
+	|	 |	 |	  |	 |
+	syntax  linker  runtime  fatal  logical
+	|	 |	  |        |	   |
+	compile library exception  crash   4+4=16
+
+
+
+			Throwable
+			 |
+		-----------------------
+		|		|
+		Error		Exception
+		|cant be	|can be
+		|caught		|caught	
+	------------		|	"checked" by the compiler
+	|		-------------------------------------		
+OutOfMemoryError	|		|	|	
+ThreadDeath		|	  SQLException IOException	
+VirtualMachineError	|
+		RuntimeException
+		| "unchecked" by the compiler
+	------------------------------------
+	|	    |     |	
+ArithmeticException |  NullPointerException  
+    10/0	    |   String str;  str.charAt(5)
+	 IndexOutOfBoundsException  
+		|
+ --------------------------------------------
+ |				 |
+ArrayIndexOutOfBoundsException   StringIndexOutOfBoundsException  
+  int ary[]={10,20,30}			String str="Jack";
+  ary[5]				str.charAt(10);
 
 
 
