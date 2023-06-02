@@ -1,1 +1,14 @@
 java -cp hsqldb.jar org.hsqldb.server.Server --database.0 file:mydb --dbname.0 xdb
+
+create table dept
+(
+   deptno int primary key,
+   dname varchar(20),
+   loc varchar(20)
+);
+INSERT INTO DEPT VALUES ( 10, 'IT','Mumbai' );
+INSERT INTO DEPT VALUES ( 20, 'SALES','New York' );
+INSERT INTO DEPT VALUES ( 30, 'PURCHASE','Delhi' );
+INSERT INTO DEPT VALUES ( 40, 'QMS','Pune' );
+
+
