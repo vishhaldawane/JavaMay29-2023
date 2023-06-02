@@ -37,12 +37,20 @@ public class InsertTest {
 			
 		} 
 		catch(SQLIntegrityConstraintViolationException e) {
-			System.out.println("Department with this ID already exists");
+			//System.out.println("Department with this ID already exists");
+			DepartmentAlreadyExistsException daeEx = new DepartmentAlreadyExistsException("Department with this ID already exists");
+			throw daeEx;
 		}
 		catch (SQLException e) {
 				System.out.println("Some problem : "+e);
 
 		}
 		
+	}
+}
+
+class DepartmentAlreadyExistsException extends RuntimeException {
+	DepartmentAlreadyExistsException (String st) {
+		super(st);
 	}
 }
