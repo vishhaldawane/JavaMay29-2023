@@ -891,14 +891,14 @@ Exception Handling
 		|caught		|caught	
 	------------		|	"checked" by the compiler
 	|		-------------------------------------		
-OutOfMemoryError	|		|	|	
-ThreadDeath		|	  SQLException IOException	
+OutOfMemoryError	|	   |	|	|	
+ThreadDeath		|	  ...	SQLException IOException	
 VirtualMachineError	|
 		RuntimeException
 		| "unchecked" by the compiler
-	------------------------------------
-	|	    |     |	
-ArithmeticException |  NullPointerException  
+	-------------------------------------------
+	|	    |     |			|
+ArithmeticException |  NullPointerException    ....
     10/0	    |   String str;  str.charAt(5)
 	 IndexOutOfBoundsException  
 		|
@@ -911,11 +911,543 @@ ArrayIndexOutOfBoundsException   StringIndexOutOfBoundsException
 
 
 
+shrut pragya	chintan pragya    bhavana pragya
+|		|			|
+listen		manan		experiencing at the moment
+
+
+
+
+Paramhansa Yogananda - God Talks To Arjuna
+				Royal Science of God Realization
+
+			Parmatma
+			   |
+			  Atma  - atma shakti
+			   |
+			Intellect - gyan shakti
+			   |
+	past <-----------Present-------------> future
+	|		   |			|
+	|		  mind - ichha shakti	|
+   -----------				  ---------------
+   |        |				   |		|
+   good    bad				  good		bad
+
+	
+Custom exception = user defiend exceptions
+----------------------------------------------
+
+
+	class Car {
+
+		void longDrive() {
+			
+		}
+
+	}
+
+unchecked
+	class TyrePuncturedException extends RuntimeException {
+
+	}
+	class BrakeFailedException extends RuntimeException {
+	
+	}
+
+checked
+	class FuelException extends Exception {
+	
+	}
+	class TyrePressureException extends Exception {
+
+	}
 
 
 
 
 
+
+
+
+
+------------------------------------------
+
+Packages
+--------
+
+	packages = to organize relevant classes 
+	packages = similar to directories/folders on the OS
+	|			|
+	JAVA			Operating system
+				|
+				to store / organize files/
+				subfolders
+
+	package names cannot have spaces
+	packages always in small cases
+
+
+			java
+			|
+	---------------------------------------------------
+	|	|	|	|	|	|
+	lang	awt	net	util    sql	io
+    (default)	|	 |	 |	|	 |
+	System	Button	Socket	List	Driver   File
+	Thread  Menu		Set	ResultSet FileInputStream
+	Exception Window	LinkedList	  FileOutputStream 	
+RuntimeException  Frame		ArrayList
+	String
+
+
+	QUALIFIERS
+	static, final, abstract
+
+	ACCESS SPECIFIERS
+		1.           <--- default/within the package/friendly
+		2. private   <-- only within the class
+		3. protected
+		4. public    <-- available anywhere
+
+
+			jungle <--main package
+			|
+	-----------------------------------------------------
+	|		|		|		|
+	cave		tree		river		house <-- subpackages
+	|		|		|		|
+	Tiger		Monkey		Turtle		FarmHouse
+	Lion		Parrot		Fish		
+	Bear
+
+Tiger.java
+---------------------------
+package jungle.cave;
+class Tiger
+{
+}
+----------------------------
+
+
+Lion.java
+---------------------------
+package jungle.cave;
+class Lion
+{
+}
+----------------------------
+		
+FarmHouse.java
+-------------------
+package jungle.house
+import jungle.cave.Tiger;
+import jungle.cave.Lion;
+
+class FarmHouse
+{
+	main()
+	{
+		Tiger tiger = new Tiger();
+	}
+}
+
+-----------------------------------------------
+
+Multithreading
+----------------
+
+Accounts master
+	---------------------------
+	101 Suresh 70000 
+	102 Dinesh 60000
+	103 Ritesh 80000
+	..
+	105
+	106
+	119
+	201
+
+			Cash Deposit Counter
+		Teller1		Teller2		Teller3
+		|		|		|
+		getBalance();	getBalance();	getBalance();
+		|		|		|
+		calcAmt();	calcAmt();	calcAmt();
+		|		|		|
+		setBalance();	setBalance();	setBalance();
+		|		|		|
+		Customer1	Customer2	Customer3
+	a/c :	101		101		101
+	time:	10.30am		10.30am		10.30am
+	cash:	5000/-		7000/-		8000/-
+	deno:	500Rs 		100Rs		2000Rs
+	cnt :	10 notes	70 notes	4
+
+
+	Whatever doesnt depend upon "business logic"
+	must be automated
+
+		Object
+		  | 
+	-------------------------------------------
+		|			   |
+		|	Runnable	  JFrame
+		|	| run();	   |
+		|	|		   |
+		| -----------------------+ |
+		| |isA		         | |
+		| |			 | |
+		Thread 			MyFrame
+		|start() { } 
+		|run(){ }
+	------------------
+	|isA
+   MessageThread
+	run() { ur logic }
+
+
+I.
+	1. write a class that extends java.lang.Thread class
+	2. to override the run() {} method - which has ur logic
+	3. instantiate this class - MessageThread
+	4. invoke its start() method -> invokes ur run() { }
+
+II.
+	1. write a class that implements java.lang.Runnable
+	2. mandate to implement the run() {} method - which has ur logic
+	3. instantiate this class - MessageThread
+	4. instantiate java.lang.Thread class - and to its contructor
+			pass your Runnable object (MyFrame)
+	5. invoke the java.lang.Thread class's start method-> 
+		which invoke ur MyFrame's run()
+
+	
+	Thread
+	|
+	-------------------------------------
+	|		|		|
+	MIN_PRIORITY NORM_PRIORITY MAX_PRIORITY
+	1		5		10
+
+
+
+
+
+
+
+
+	Producer			Consumer
+	|				|
+	run()				run()
+	|				|
+	|	        Object		|
+	|notify()	   |		|wait()
+	+------->-------FoodItem ------->
+			  |
+			itemServed?
+			  |
+	   produces()	  |         consumes()
+		|	  |		|
+		---------------------------
+
+	Object
+	-------------
+
+1		toString() - string representation
+2		hashCode() - memory address
+
+	--ITC
+3		wait()
+4		wait(.)
+5		wait(..)
+6		notify()		
+7		notifyAll()
+
+8		equals - comparing object
+
+9		finalize() - garbage collection
+10		getClass() - META DATA
+
+11		clone() - object cloning
+
+----------------------------------------------------------------------
+
+Generics, Collection f/w
+
+	Generics
+	|
+	template functions/classes
+
+
+interface A
+{
+  void fun();
+}
+interface B extends A
+{
+  void foo();
+}
+class D{}
+class C extends D implements B
+{
+}			
+				A    X   Y
+				|    |   |
+				----------
+				|
+				| extends A,X,Y
+		D		B
+		|extends	|
+		|----------------
+		|	implements
+		|
+		C
+
+			Iterable(i)
+			  |5
+			Collection(i)	<-------------	Map(i)
+			  |10				 |K,V
+		---------------------------	  ----------------
+		|3			|7	  |		|
+		List(i)			Set(i)	TreeMap		HashMap
+		|duplicates		|unique
+	-------------------	-------------------------
+	|		|	|		|	
+	ArrayList  LinkedList	TreeSet	     HashSet
+	|		|	 |		  |hash table
+	PhoneLog  PhoneContact	 ChemicalElements Book
+	
+
+
+		array = limitations of size
+			FIXED TYPE
+			FIXED SIZE
+			CANNOT GROW
+			CANNOT SHRINK
+
+		ArrayList		
+
+
+
+
+
+
+
+
+
+
+
+
+package = java.io
+
+	stadard input				standard output				standard output 
+	device					device								device
+	|					|										|
+	System.in				System.out							System.out
+	|					   |								|
+	|					   |									|
+	|		Your Java Program	   |   				|
+	|			|		   |					|
+	+-->->input-->-->-->data + functions -->->output->->+
+				 ||
+				 ||
+			incoming || outgoing
+			---------------------
+			|	|	|
+			HDD	RAM	NETWORK
+			|
+			FILE
+						
+						
+			input - read
+			output - write
+			
+						
+java.io - all methods throws IOException
+						
+==============================================================================												
+	BYTE BASED STREAM		||	CHARACTER BASED STREAM
+		|			||	|				
+		ASCII			||	UNICODE
+		1 byte = 256		||	1 char = 2 bytes = 65535
+=================================================================================	
+InputStream     | OutputStream	    	|| 	  Reader         |  Writer
+  read();       |   write();		||		read();	 |   write();
+-----------------------------------------------------------------------------
+FileInputStream | FileOutputStream  	||  FileReader		 | FileWriter
+-----------------------------------------------------------------------------				
+						
+						
+			AMIT							AMIT
+			1111							2222
+				
+						
+			65
+			
+	BYTE BASED		- ASCII
+		<--65-->   <--77---> <---73 -->	<---84-->
+		0100 0001  0100 1101  0100 1001 0101 0100  
+		A		   M          I	        T
+			
+	CHARACTER BASED		
+		<-------------65-->   <-----------77--->  <-----------73 ---> <--------84------->
+		0000 0000 0100 0001  0000 0000 0100 1101  0000 0000 0100 1001 0000 0000 0101 0100  
+		A		             M                    I	                  T
+
+						
+	A 65
+	B 66
+	C 67
+	D 68
+	E 69
+	F 70
+	G 71
+	H 72
+	I 73
+	J 74
+	K 75
+	L 76
+	M 77
+	N 78
+	O 79
+	P 80
+	Q 81
+	R 82
+	S 83
+	T 84
+			
+
+-----------------------------------------------------------
+
+HSQLDB - DATABASE - WRITTEN IN JAVA
+
+HYPER SQLDB
+
+
+java.sql package 
+
+		Java DataBase Connectivity
+
+
+	FrontEnd			BackEnd
+	|				|
+	Java	--------> Driver <--- Database [ oracle/hsqldb ]
+	|		    |		|
+	Application logic   |		Data logic
+			    |
+			    |		Tables/procedures/functions
+			    |
+  hsqldb.jar -->	org.hsqldb.jdbc.JDBCDriver
+
+		1. Know the database [ hsqldb ]
+		2. Know the driver
+
+			org.hsqldb.jdbc.JDBCDriver			
+		3. Register this driver
+			DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver())
+		4. Connect to the database
+			Connection conn = DriverManager.getConnection(dsn,username,password);
+						    jdbc:hsqldb:hsql://localhost/xdb
+		5. Make the desired Statement
+			Statement st = conn.createStatement();
+		6. Execute the Statement AND Acquire the Result
+			ResultSet rs = st.executeQuery("SELECT * FROM DEPT");
+		7. Process the result
+		8. close the result, close the statement,
+			close the connection
+	
+
+
+following diagram is NOT of inheritance
+
+ORALCE DRIVER
+C:\app\PC-26\product\18.0.0\dbhomeXE\jdbc\lib\ojdbc8.jar
+					oracle.jdbc.OracleDriver
+
+this is not inheritance diagram
+
+			Driver
+			| org.hsqldb.jdbc.JDBCDriver
+			|
+		 DriverManager
+			| DriverManager.registerDriver(.)
+			| DriverManager.getConnection(...)
+			|
+			Connection
+			| conn.createStatement();
+			| conn.prepareStatement();
+			| conn.prepareCall();
+			|
+	-----------------------------------------------
+	|		|			|	
+	Statement	PreparedStatement	CallableStatement
+	SELECT		INSERT/UPDATE/DELETE	Procedure/function
+
+
+
+
+create table dept
+(
+   deptno int primary key,
+   dname varchar(20),
+   loc varchar(20)
+);
+INSERT INTO DEPT VALUES ( 10, 'IT','Mumbai' );
+INSERT INTO DEPT VALUES ( 20, 'SALES','New York' );
+INSERT INTO DEPT VALUES ( 30, 'PURCHASE','Delhi' );
+INSERT INTO DEPT VALUES ( 40, 'QMS','Pune' );
+
+
+
+	UpdateTest  AND 	DeleteTest
+	|
+	if non existing deptno is given
+	then it must throw an exception as
+		DepartmentNotFoundException
+
+
+		
+	DaoProject - self study  it
+
+	then make your own DaoProject for
+	Team1 : ApplicantDao
+	Team2 : AccountDashBoardDao
+	Team3 : FundTransferDao
+	Team4 : PayeeDao
+	Team5 : StaementDao
+
+
+	
+
+1 - DB
+2 - POJO - plain old java object
+3 - DAO - data access object
+-----------------------------------------
+4 - SERVICE - real business logic
+5 - CONTROLLER
+6 - UI
+						1 - DB
+						2 - POJO
+						3 - DAO
+
+					Menu-6
+
+
+			
+		|	|	|		|
+		SERVICE COUNTER	4		CONTROLLER-5
+						|
+						CUSTOMER
+				
+
+
+
+
+
+	POJO		POJI		POJIIMPL
+	|		|		|
+	Department	DepartmentDAO	DepartmentDAOImpl
 
 
 
