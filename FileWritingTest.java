@@ -13,8 +13,14 @@ public class FileWritingTest {
 			System.out.println("File is ready for writing...");
 			
 			Scanner scan = new Scanner(System.in);
-			System.out.println("Enter line : ");
-			String theLine = scan.nextLine();
+			String theLine = "";
+			String enteredLine="";
+			do {
+				System.out.println("Enter line : ");
+				 theLine = theLine + enteredLine ; 
+				 enteredLine = scan.nextLine();
+			}while(!enteredLine.equalsIgnoreCase("done"));
+			
 			
 			byte dataAry[]= theLine.getBytes();
 			System.out.println("Converted line into bytes");
